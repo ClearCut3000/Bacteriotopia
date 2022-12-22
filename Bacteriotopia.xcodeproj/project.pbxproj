@@ -13,6 +13,7 @@
 		36EA083A2954D2CD001CBEA1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EA08392954D2CD001CBEA1 /* Preview Assets.xcassets */; };
 		36EA08412954D512001CBEA1 /* Bacteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08402954D512001CBEA1 /* Bacteria.swift */; };
 		36EA08432954D8CA001CBEA1 /* BacteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08422954D8CA001CBEA1 /* BacteriaView.swift */; };
+		36EA08452954DE47001CBEA1 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EA08442954DE47001CBEA1 /* GameBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		36EA08392954D2CD001CBEA1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		36EA08402954D512001CBEA1 /* Bacteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bacteria.swift; sourceTree = "<group>"; };
 		36EA08422954D8CA001CBEA1 /* BacteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BacteriaView.swift; sourceTree = "<group>"; };
+		36EA08442954DE47001CBEA1 /* GameBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				36EA08382954D2CD001CBEA1 /* Preview Content */,
 				36EA08402954D512001CBEA1 /* Bacteria.swift */,
 				36EA08422954D8CA001CBEA1 /* BacteriaView.swift */,
+				36EA08442954DE47001CBEA1 /* GameBoard.swift */,
 			);
 			path = Bacteriotopia;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				36EA08352954D2CB001CBEA1 /* ContentView.swift in Sources */,
 				36EA08332954D2CB001CBEA1 /* BacteriotopiaApp.swift in Sources */,
+				36EA08452954DE47001CBEA1 /* GameBoard.swift in Sources */,
 				36EA08412954D512001CBEA1 /* Bacteria.swift in Sources */,
 				36EA08432954D8CA001CBEA1 /* BacteriaView.swift in Sources */,
 			);

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+  @StateObject private var board = GameBoard()
+
     var body: some View {
         VStack {
           HStack {
@@ -17,12 +19,15 @@ struct ContentView: View {
             Spacer()
             Text("Red: 0")
           }
-          .font(.system(size: 24).weight(.black))
+          .font(.system(size: 20).weight(.black))
           VStack {
             ForEach(0..<11, id: \.self) { row in
               HStack {
                 ForEach(0..<22, id: \.self) { column in
-                  Text("X")
+                  let bacteria = board.grid[row][column]
+                  BacteriaView(bacteria: bacteria) {
+
+                  }
                 }
               }
             }

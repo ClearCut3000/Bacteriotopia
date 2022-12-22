@@ -32,13 +32,12 @@ struct BacteriaView: View {
             .foregroundColor(bacteria.color)
         }
         .buttonStyle(.plain)
-        .frame(width: 32, height: 32)
+        .frame(width: 16, height: 16)
 
         Rectangle()
           .fill(bacteria.color)
-          .frame(width: 3, height: 8)
-          .offset(y: -20)
-      }
+          .frame(width: 2, height: 8)
+          .offset(y: -11)      }
       .rotationEffect(.degrees(bacteria.direction.rotation))
     }
 }

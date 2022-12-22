@@ -10,7 +10,7 @@ import SwiftUI
 class Bacteria {
 
   //MARK: - Properties
-  enum Direction {
+  enum Direction: CaseIterable {
     case north, east, west, south
 
     var rotation: Double {
