@@ -10,12 +10,27 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+          HStack {
+            Text("Green: 0")
+            Spacer()
+            Text("Bacteriotopia")
+            Spacer()
+            Text("Red: 0")
+          }
+          .font(.system(size: 24).weight(.black))
+          VStack {
+            ForEach(0..<11, id: \.self) { row in
+              HStack {
+                ForEach(0..<22, id: \.self) { column in
+                  Text("X")
+                }
+              }
+            }
+          }
         }
         .padding()
+        .fixedSize()
+        .preferredColorScheme(.dark)
     }
 }
 
