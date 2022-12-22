@@ -44,7 +44,7 @@ class Bacteria {
   var row: Int
   var column: Int
   var color = Color.gray
-  var directionn = Direction.north
+  var direction = Direction.north
 
   //MARK: - Init
   init(row: Int, column: Int) {
