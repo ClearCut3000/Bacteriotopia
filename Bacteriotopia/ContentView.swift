@@ -26,7 +26,7 @@ struct ContentView: View {
                 ForEach(0..<22, id: \.self) { column in
                   let bacteria = board.grid[row][column]
                   BacteriaView(bacteria: bacteria) {
-
+                    board.rotate(bacteria: bacteria)
                   }
                 }
               }
