@@ -24,16 +24,36 @@ struct ContentView: View {
               .background(Capsule().fill(.red).opacity(board.currentPlayer == .red ? 1 : 0))
           }
           .font(.system(size: 20).weight(.black))
-          VStack {
-            ForEach(0..<11, id: \.self) { row in
-              HStack {
-                ForEach(0..<22, id: \.self) { column in
-                  let bacteria = board.grid[row][column]
-                  BacteriaView(bacteria: bacteria) {
-                    board.rotate(bacteria: bacteria)
+
+          ZStack {
+            VStack {
+              ForEach(0..<11, id: \.self) { row in
+                HStack {
+                  ForEach(0..<22, id: \.self) { column in
+                    let bacteria = board.grid[row][column]
+                    BacteriaView(bacteria: bacteria) {
+                      board.rotate(bacteria: bacteria)
+                    }
                   }
                 }
               }
+            }
+            if let winner = board.winner {
+              VStack {
+                Text("\(winner) wins!")
+                  .font(.largeTitle)
+
+                Button(action: board.reset) {
+                  Text("Play Again")
+                    .padding()
+                    .background(.blue)
+                    .clipShape(Capsule())
+                }
+                .buttonStyle(.plain)
+              }
+              .padding(40)
+              .background(.black.opacity(0.85))
+              .transition(.scale)
             }
           }
         }
