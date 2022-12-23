@@ -8,10 +8,18 @@
 import SwiftUI
 
 class GameBoard: ObservableObject {
+
+  //MARK: - Properties
   let rowCount = 11
   let columnCount = 22
 
   @Published var grid = [[Bacteria]]()
+
+  @Published var currentPlayer = Color.green
+  @Published var greenScore = 1
+  @Published var redScore = 1
+
+  private var bacteriaBeginInfected = 0
 
   init() {
     reset()
@@ -99,14 +107,60 @@ class GameBoard: ObservableObject {
     for case let bacteria? in bacteriaToInfect {
       if bacteria.color != from.color {
         bacteria.color = from.color
-        infect(from: bacteria)
+        bacteriaBeginInfected += 1
+        Task { @MainActor in
+          try await Task.sleep(nanoseconds: 50_000_000)
+          bacteriaBeginInfected -= 1
+          infect(from: bacteria)
+        }
       }
     }
+    updateScores()
   }
 
   func rotate(bacteria: Bacteria) {
+    guard bacteria.color == currentPlayer else { return }
+    guard bacteriaBeginInfected == 0 else { return }
     objectWillChange.send()
     bacteria.direction = bacteria.direction.next
     infect(from: bacteria)
+  }
+
+  func changePlayer() {
+    if currentPlayer == .green {
+      currentPlayer = .red
+    } else {
+      currentPlayer = .green
+    }
+  }
+
+  func updateScores() {
+    var newRedScore = 0
+    var newGreenScore = 0
+
+    for row in grid {
+      for bacteria in row {
+        if bacteria.color == .red {
+          newRedScore += 1
+        } else {
+          if bacteria.color == .green {
+            newGreenScore += 1
+          }
+        }
+      }
+    }
+    redScore = newRedScore
+    greenScore = newGreenScore
+    if bacteriaBeginInfected == 0 {
+      withAnimation(.spring()) {
+        if redScore == 0 {
+
+        } else if greenScore == 0 {
+
+        } else {
+          changePlayer()
+        }
+      }
+    }
   }
 }
